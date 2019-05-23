@@ -1,18 +1,55 @@
-# Hello, world!
-#
-# This is an example function named 'hello' 
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
+#' Open Tracing
+#' @name ot
+#' @docType package
+NULL
 
-hello <- function() {
-  print("Hello, world!")
+#' @export
+startSpan <- function(tracer, name, ...) {
+  UseMethod("startSpan")
 }
+
+#' @export
+inject <- function(tracer, contextObj, format, carrier) {
+  if(inherits(contextObj, "span")) context <- getContext(contextObj)
+  UseMethod("inject")
+}
+
+#' @export
+extract <- function(tracer, format, carrier) {
+  UseMethod("inject")
+}
+
+
+###
+
+#' @export
+setTags <- function(span, ...) {
+  UseMethod("setTags")
+}
+
+#' @export
+baggage <- function(span, ...) {
+  UseMethod("baggage")
+}
+
+#' @export
+`baggage<-` <- function(span, ...) {
+  UseMethod("baggage<-")
+}
+
+#' @export
+getContext <- function(span, ...) {
+  UseMethod("getContext")
+}
+
+
+#' @export
+otlog <- function(span, ..., timestamp=Sys.time()) {
+  UseMethod("otlog")
+}
+
+#' @export
+finish <- function(span, finishTime=Sys.time()) {
+  UseMethod("finish")
+}
+
