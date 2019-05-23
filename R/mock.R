@@ -13,7 +13,7 @@ clearMockTracer <- function(tracer) {
 #' @export
 startSpan.MOCK_TRACER <- function(tracer, name, ..., childOf=NULL) {
   ts <- Sys.time()
-  uuid <- sprintf("%8X%8X",
+  uuid <- sprintf("%08X%08X",
                   sample.int(.Machine$integer.max, 1),
                   as.integer(ts))
   span <- list(name=name,
@@ -27,7 +27,7 @@ startSpan.MOCK_TRACER <- function(tracer, name, ..., childOf=NULL) {
 
   span <- list2env(span, parent = emptyenv())
   class(span) <- "MOCK_SPAN"
-  tracer[[as.character(length(tracer))]] <- span
+  tracer[[sprintf("%08X", length(tracer))]] <- span
   span
 }
 

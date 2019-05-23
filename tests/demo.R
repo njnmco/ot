@@ -1,5 +1,6 @@
-tracer <- getMockTracer()
-span = startSpan(tracer, 'test_operation', key1="value1")
+{
+tracer <- getMsgTracer()
+span <- startSpan(tracer, 'test_operation', key1="value1")
 otlog(span, "HIA")
 
 span2 = startSpan(tracer, 'test_operation', key1="value2", childOf = span)
@@ -11,3 +12,4 @@ finish(span2)
 span
 
 tracer
+}
