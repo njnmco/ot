@@ -1,7 +1,6 @@
 #' A Mock Tracer implementation
 #'
-#'
-#'
+#' This implements a Tracer and Span which stores all function arguments in an environment.
 #'
 #' @rdname mock
 #' @export
@@ -17,8 +16,6 @@ clearMockTracer <- function(tracer) {
 
 }
 
-# @inheritParams startSpan
-# @param childOf a parent span
 #' @export
 startSpan.MOCK_TRACER <- function(tracer, name, ..., childOf=NULL) {
   ts <- Sys.time()

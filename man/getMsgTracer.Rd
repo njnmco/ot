@@ -2,7 +2,7 @@
 % Please edit documentation in R/message.R
 \name{getMsgTracer}
 \alias{getMsgTracer}
-\title{Message Tracer}
+\title{A Message Tracer}
 \usage{
 getMsgTracer()
 }
@@ -10,5 +10,5 @@ getMsgTracer()
 a new tracer instance
 }
 \description{
-A tracer that delegates to message.
+This implements a tracer that delegates function calls to message.
 }

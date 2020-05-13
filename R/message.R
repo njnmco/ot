@@ -1,6 +1,6 @@
-#' Message Tracer
+#' A Message Tracer
 #'
-#' A tracer that delegates to message.
+#' This implements a tracer that delegates function calls to message.
 #'
 #' @return a new tracer instance
 #' @export
@@ -23,9 +23,7 @@ startSpan.MSG_TRACER <- function(tracer, name, ..., childOf=list()) {
 }
 
 #' @export
-print.MSG_TRACER <- function(x, ...) {
-}
-
+print.MSG_TRACER <- function(x, ...) {}
 
 ###
 
@@ -40,5 +38,10 @@ finish.MSG_SPAN <- function(span, finishTime=Sys.time()) {
 }
 
 #' @export
-print.MSG_SPAN <- function(x, ...) {
+setTags.MSG_SPAN <- function(span, ...) {
+  message(span$depth, "<", Sys.time(), ">", "Tag ", list(...), " on ", span$name)
 }
+
+
+#' @export
+print.MSG_SPAN <- function(x, ...) {}

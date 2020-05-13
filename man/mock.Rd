@@ -13,5 +13,5 @@ clearMockTracer(tracer)
 \item{tracer}{the mock tracer}
 }
 \description{
-A Mock Tracer implementation
+This implements a Tracer and Span which stores all function arguments in an environment.
 }
