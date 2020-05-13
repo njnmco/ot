@@ -3,8 +3,10 @@
 \docType{package}
 \name{ot}
 \alias{ot}
-\alias{ot-package}
 \title{Open Tracing}
 \description{
-Open Tracing
+Open Tracing is a specification for trace logging. This package provides generics for the required methods.
+}
+\seealso{
+\url{https://opentracing.io/}
 }

@@ -1,4 +1,8 @@
-
+#' Message Tracer
+#'
+#' A tracer that delegates to message.
+#'
+#' @return a new tracer instance
 #' @export
 getMsgTracer <- function() {
   structure(0, class="MSG_TRACER")

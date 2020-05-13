@@ -1,15 +1,24 @@
-
+#' A Mock Tracer implementation
+#'
+#'
+#'
+#'
+#' @rdname mock
 #' @export
 getMockTracer <- function() {
   structure(new.env(parent = emptyenv()), class="MOCK_TRACER")
 }
 
+#' @param tracer the mock tracer
 #' @export
+#' @rdname mock
 clearMockTracer <- function(tracer) {
   rm(list = names(tracer), envir = tracer)
 
 }
 
+# @inheritParams startSpan
+# @param childOf a parent span
 #' @export
 startSpan.MOCK_TRACER <- function(tracer, name, ..., childOf=NULL) {
   ts <- Sys.time()
@@ -52,6 +61,7 @@ finish.MOCK_SPAN <- function(span, finishTime=Sys.time()) {
 }
 
 #' @export
+#' @importFrom utils str
 print.MOCK_SPAN <- function(x, ...) {
   cat(sprintf("Span(%s) [%s, %s]\n",x$name, x$start, x$finish))
   for(t in names(x$tags)) {
