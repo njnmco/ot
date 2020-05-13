@@ -4,8 +4,8 @@ Title: Open Tracing
 Version: 0.1.0
 Author: Neal Fultz <nfultz@gmail.com>
 Maintainer: Neal Fultz <nfultz@gmail.com>
-Description: OpenTracing (https://opentracing.io) allows developers to
-    add instrumentation to their application code using APIs that are
+Description: Open Tracing <https://opentracing.io> allows developers to
+    add instrumentation to their application code using interfaces that are
     vendor-agnostic.
 License: GPL-3
 Encoding: UTF-8
