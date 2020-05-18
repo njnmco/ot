@@ -2,16 +2,16 @@
 % Please edit documentation in R/mock.R
 \name{getMockTracer}
 \alias{getMockTracer}
-\alias{clearMockTracer}
 \title{A Mock Tracer implementation}
 \usage{
 getMockTracer()
-
-clearMockTracer(tracer)
 }
-\arguments{
-\item{tracer}{the mock tracer}
+\value{
+a new tracer instance
 }
 \description{
 This implements a Tracer and Span which stores all function arguments in an environment.
+}
+\examples{
+z <- ot::getMockTracer()
 }

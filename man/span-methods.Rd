@@ -44,3 +44,13 @@ These define the core methods required by the specification for using spans.
 \note{
 Developers should implement the \code{otlog} method only for their spans - log is a generic method used by R for logarithms. \code{ot::log} is an alias for convenience only.
 }
+\examples{
+s <- ot::startSpan(ot::getNoOpTracer())
+ot::setTags(s, foo=1)
+ot::baggage(s) <- list(ctx=1)
+ot::getContext(s)
+ot::otlog(s, foo=1)
+ot::log(s, bar=2)
+ot::finish(s)
+ot::baggage(s)
+}

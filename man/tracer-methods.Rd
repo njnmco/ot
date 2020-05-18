@@ -28,3 +28,9 @@ extract(tracer, format, carrier)
 \description{
 Tracer objects encapsulate the state of the logging system. startSpan creates a span, and inject and extract set metadata via sidechannels.
 }
+\examples{
+z <- ot::getNoOpTracer()
+ot::startSpan(z)
+ot::inject(z, list("User-Agent"="R"), "HTTP_HEADERS", NULL)
+ot::extract(z, "HTTP_HEADERS", NULL)
+}

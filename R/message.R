@@ -1,8 +1,11 @@
 #' A Message Tracer
 #'
-#' This implements a tracer that delegates function calls to message.
+#' This implements a tracer that delegates function calls to \code{message()}.
 #'
 #' @return a new tracer instance
+#' @rdname message
+#' @examples
+#' z <- ot::getMsgTracer()
 #' @export
 getMsgTracer <- function() {
   structure(0, class="MSG_TRACER")

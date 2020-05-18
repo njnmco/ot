@@ -10,5 +10,8 @@ getMsgTracer()
 a new tracer instance
 }
 \description{
-This implements a tracer that delegates function calls to message.
+This implements a tracer that delegates function calls to \code{message()}.
+}
+\examples{
+z <- ot::getMsgTracer()
 }

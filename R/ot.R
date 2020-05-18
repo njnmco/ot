@@ -17,6 +17,11 @@ NULL
 #' @param name the name of the span
 #' @param ... left to implementation
 #' @rdname tracer-methods
+#' @examples
+#' z <- ot::getNoOpTracer()
+#' ot::startSpan(z)
+#' ot::inject(z, list("User-Agent"="R"), "HTTP_HEADERS", NULL)
+#' ot::extract(z, "HTTP_HEADERS", NULL)
 #' @export
 startSpan <- function(tracer, name, ...) {
   UseMethod("startSpan")
@@ -50,6 +55,15 @@ extract <- function(tracer, format, carrier) {
 #' @param ... defined by implementation
 #' @return the span, except for getContext which returns the span's parent context and baggage, which returns any baggage objects.
 #' @rdname span-methods
+#' @examples
+#' s <- ot::startSpan(ot::getNoOpTracer())
+#' ot::setTags(s, foo=1)
+#' ot::baggage(s) <- list(ctx=1)
+#' ot::getContext(s)
+#' ot::otlog(s, foo=1)
+#' ot::log(s, bar=2)
+#' ot::finish(s)
+#' ot::baggage(s)
 #' @export
 setTags <- function(span, ...) {
   UseMethod("setTags")

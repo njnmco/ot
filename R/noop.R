@@ -4,9 +4,22 @@
 #'
 #'
 #' @rdname noop
+#' @return a tracer instance
+#' @examples
+#' z <- ot::getNoOpTracer()
 #' @export
 getNoOpTracer <- function() {
   structure(0, class="NOOP_TRACER")
+}
+
+#' @export
+inject.NOOP_TRACER <- function(tracer, contextObj, format, carrier) {
+  NULL
+}
+
+#' @export
+extract.NOOP_TRACER <- function(tracer, format, carrier) {
+  NULL
 }
 
 
@@ -18,6 +31,11 @@ startSpan.NOOP_TRACER <- function(tracer, name, ...) {
 ###
 
 #' @export
+setTags.NOOP_SPAN <- function(span, ...) {
+  NULL
+}
+
+#' @export
 otlog.NOOP_SPAN <- function(span, ..., timestamp=Sys.time()) {
   span
 }
@@ -26,3 +44,19 @@ otlog.NOOP_SPAN <- function(span, ..., timestamp=Sys.time()) {
 finish.NOOP_SPAN <- function(span, finishTime=Sys.time()) {
   NULL
 }
+
+#' @export
+baggage.NOOP_SPAN <- function(span,...) {
+  NULL
+}
+
+#' @export
+`baggage<-.NOOP_SPAN` <- function(span, ..., value) {
+  span
+}
+
+#' @export
+getContext.NOOP_SPAN <- function(span, ...) {
+  NULL
+}
+

@@ -3,17 +3,12 @@
 #' This implements a Tracer and Span which stores all function arguments in an environment.
 #'
 #' @rdname mock
+#' @return a new tracer instance
+#' @examples
+#' z <- ot::getMockTracer()
 #' @export
 getMockTracer <- function() {
   structure(new.env(parent = emptyenv()), class="MOCK_TRACER")
-}
-
-#' @param tracer the mock tracer
-#' @export
-#' @rdname mock
-clearMockTracer <- function(tracer) {
-  rm(list = names(tracer), envir = tracer)
-
 }
 
 #' @export

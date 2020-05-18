@@ -6,6 +6,12 @@
 \usage{
 getNoOpTracer()
 }
+\value{
+a tracer instance
+}
 \description{
 The OpenTracing specification mandates a tracer implementation which does nothing.
+}
+\examples{
+z <- ot::getNoOpTracer()
 }
