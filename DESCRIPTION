@@ -1,6 +1,6 @@
 Package: ot
 Type: Package
-Title: Open Tracing
+Title: 'Open Tracing'
 Version: 0.2.0
 Author: Neal Fultz <nfultz@gmail.com>
 Maintainer: Neal Fultz <nfultz@gmail.com>
